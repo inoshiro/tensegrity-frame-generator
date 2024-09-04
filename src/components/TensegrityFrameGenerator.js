@@ -8,7 +8,8 @@ const TensegrityFrameGenerator = () => {
   const canvasRef = useRef(null);
 
   const frames = [
-    { name: 'フレーム', url: '/images/frame.png' },
+    { name: 'シャドウ白', url: '/images/frame_shadow_white.png' },
+    { name: 'シャドウ黒', url: '/images/frame_shadow_black.png' },
   ];
 
   const handleFileChange = (event) => {
@@ -153,7 +154,7 @@ const TensegrityFrameGenerator = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.header}>Tensegrityフレームジェネレーター</h1>
+      <h1 style={styles.header}>🍹Tensegrityフレームジェネレーター🐹</h1>
 
       <div style={styles.excitingMessage}>
         いよいよ<a href="https://www.nornis.com/event/live_tour_2024/" target="_blank" style={styles.link}>Nornis LIVE TOUR 2024 -Tensegrity-</a>の開催が近づいてきましたね！<br />
