@@ -1,10 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import TensegrityFrameGenerator from './components/TensegrityFrameGenerator';
 
 function App() {
   return (
     <div className="App">
-      <title>Tensegrityフレームジェネレーター</title>
+      <Helmet>
+        <title>Tensegrityフレームジェネレーター</title>
+      </Helmet>
       <TensegrityFrameGenerator />
     </div>
   );
