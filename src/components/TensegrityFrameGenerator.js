@@ -4,6 +4,7 @@ const TensegrityFrameGenerator = () => {
   const [userImage, setUserImage] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
   const [selectedFrame, setSelectedFrame] = useState(0);
+  const [rotation, setRotation] = useState(0);
   const fileInputRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -36,13 +37,19 @@ const TensegrityFrameGenerator = () => {
       ctx.drawImage(userImg, x, y, userImg.width * scale, userImg.height * scale);
 
       frameImg.onload = () => {
-        ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+        // フレームを回転させて描画
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((rotation * Math.PI) / 180);  // 角度をラジアンに変換して回転
+        ctx.drawImage(frameImg, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+        ctx.restore();
+
         setProcessedImage(canvas.toDataURL());
       };
       frameImg.src = frames[selectedFrame].url;
     };
     userImg.src = userImage;
-  }, [userImage, selectedFrame, frames]);  // framesを依存配列に追加
+  }, [userImage, selectedFrame, frames, rotation]);  // framesを依存配列に追加
 
   const downloadImage = () => {
     const link = document.createElement('a');
@@ -207,6 +214,17 @@ const TensegrityFrameGenerator = () => {
             <span style={styles.label}>フレーム適用後</span>
             <img src={processedImage} alt="加工済み" style={styles.image} />
           </div>
+        </div>
+      )}
+
+      {processedImage && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+          <button
+            onClick={() => setRotation(rotation + 90)}  // ボタンを押すと90度回転
+            style={styles.button}
+          >
+            フレームを90度回転
+          </button>
         </div>
       )}
 
