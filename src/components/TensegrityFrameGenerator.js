@@ -32,6 +32,10 @@ const TensegrityFrameGenerator = () => {
     const frameImg = new Image();
 
     userImg.onload = () => {
+      // キャンバスのサイズを大きくする（例：600x600）
+      canvas.width = 600;
+      canvas.height = 600;
+
       const scale = Math.min(canvas.width / userImg.width, canvas.height / userImg.height);
       const x = (canvas.width / 2) - (userImg.width / 2) * scale;
       const y = (canvas.height / 2) - (userImg.height / 2) * scale;
