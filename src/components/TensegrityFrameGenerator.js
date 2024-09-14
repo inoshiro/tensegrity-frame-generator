@@ -169,7 +169,7 @@ const TensegrityFrameGenerator = () => {
       <h1 style={styles.header}>🍹Tensegrityフレームジェネレーター🐹</h1>
 
       <div style={styles.excitingMessage}>
-        いよいよ<a href="https://www.nornis.com/event/live_tour_2024/" target="_blank" style={styles.link}>Nornis LIVE TOUR 2024 -Tensegrity-</a>の開催が近づいてきましたね！<br />
+        いよいよ<a href="https://www.nornis.com/event/live_tour_2024/" target="_blank" style={styles.link}>Nornis LIVE TOUR 2024 -Tensegrity-</a>がはじまりました！<br />
         このサイトではSNSアイコンにTensegrity風のフレームを合成することができます。<br />
         SNS上でもイベントを盛り上げて、皆で最高のライブを作りましょう！
       </div>
